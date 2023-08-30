@@ -2,7 +2,9 @@ package org.example;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello There!");
-        System.out.println("Hi!");
+        //Menu menu = new Menu();
+        //char userChoice = menu.prompt();
+        MeasureCollection m = new MeasureCollection();
+
     }
 }
