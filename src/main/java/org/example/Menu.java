@@ -33,7 +33,7 @@ public class Menu {
 
     private String getInput() {
         Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.next();
+        String userInput = scanner.nextLine();
         return userInput;
     };
 

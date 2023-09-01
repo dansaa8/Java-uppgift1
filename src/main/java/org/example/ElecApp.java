@@ -3,18 +3,20 @@ package org.example;
 public class ElecApp {
     char choice;
     Menu menu = new Menu();
-    MeasureCollection m;
+    Measure m;
 
     public ElecApp() {
         do {
             choice = menu.prompt();
             switch(choice) {
                 case '1':
-                    m = new MeasureCollection();
+                    m = new Measure();
                     break;
                 case '2':
+                    System.out.println(m.MinMaxAndAverage() + "\n");
                     break;
                 case '3':
+                    System.out.println(m.lowestToHighest());
                     break;
                 case '4':
                     break;
