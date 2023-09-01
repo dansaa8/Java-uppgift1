@@ -19,7 +19,9 @@ public class ElecApp {
                     System.out.println(m.lowestToHighest());
                     break;
                 case '4':
+                    System.out.println(m.cheapestHours());
                     break;
+
             }
         } while (choice != 'e');
 
