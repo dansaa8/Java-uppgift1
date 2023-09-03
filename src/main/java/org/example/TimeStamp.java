@@ -1,8 +1,8 @@
 package org.example;
 
-public class TimeStamp {
-    private String time;
-    private int value;
+public final class TimeStamp {
+    private final String time;
+    private final int value;
 
     public TimeStamp(String time, int value) {
         this.time = time;

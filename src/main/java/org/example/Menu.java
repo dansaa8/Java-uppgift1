@@ -2,9 +2,9 @@ package org.example;
 
 import java.util.Scanner;
 
-public class Menu {
+public final class Menu {
 
-    private String [] options = {
+    private final String [] options = {
             "1. Inmatning",
             "2. Min, Max och Medel",
             "3. Sortera",
@@ -45,7 +45,7 @@ public class Menu {
                 }
             }
         }
-        System.out.println("\u001B[31m" + "Ogiltligt värde!" + "0m\u001B[0m" + "\n");
+        System.out.println("\u001B[31m" + "Ogiltligt val!" + "\u001B[0m" + "\n");
         return false;
     };
 }

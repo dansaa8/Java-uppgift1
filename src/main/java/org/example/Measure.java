@@ -1,14 +1,38 @@
 package org.example;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 
-public class Measure {
+public final class Measure {
 
 
     private final TimeStamp[] timeStamps = new TimeStamp[24];
 
     public Measure() {
         createTimestamps();
+    }
+
+    public Measure(String fileName) {
+        String path = System.getProperty("user.dir") + "/" + fileName;
+        String line = "";
+        int count = 0;
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(path));
+
+            while ((line = br.readLine()) != null && count < 24) {
+                String[] values = line.split(",");
+                timeStamps[count] = new TimeStamp(values[0], Integer.valueOf(values[1]));
+                count++;
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 
     private void createTimestamps() {
@@ -59,7 +83,7 @@ public class Measure {
     }
 
     public String lowestToHighest() {
-        TimeStamp[] copy = timeStamps.clone();
+        TimeStamp[] copy = Arrays.copyOf(timeStamps, timeStamps.length);
         Arrays.sort(copy, (first, second) -> {
             if (first.getValue() != second.getValue()) {
                 return first.getValue() - second.getValue();

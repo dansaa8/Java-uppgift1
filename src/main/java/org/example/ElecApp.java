@@ -1,14 +1,15 @@
 package org.example;
 
-public class ElecApp {
-    char choice;
-    Menu menu = new Menu();
-    Measure m;
+public final class ElecApp {
+    private char choice;
+    private final Menu menu = new Menu();
+    private Measure m;
 
     public ElecApp() {
+        m = new Measure("Measure.csv");
         do {
             choice = menu.prompt();
-            switch(choice) {
+            switch (choice) {
                 case '1':
                     m = new Measure();
                     break;
