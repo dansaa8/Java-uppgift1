@@ -5,27 +5,19 @@ public final class ElecApp {
     private final Menu menu = new Menu();
     private Measure m;
 
-    public ElecApp() {
-        m = new Measure("Measure.csv");
+    public ElecApp() {}
+
+    public void run() {
+        m = new Measure();
+        m.createTimeStamps("Measure.csv");
         do {
             choice = menu.prompt();
             switch (choice) {
-                case '1':
-                    m = new Measure();
-                    break;
-                case '2':
-                    System.out.println(m.MinMaxAndAverage() + "\n");
-                    break;
-                case '3':
-                    System.out.println(m.lowestToHighest());
-                    break;
-                case '4':
-                    System.out.println(m.cheapestHours());
-                    break;
-
+                case '1' -> {m = new Measure(); m.createTimestamps();}
+                case '2' -> System.out.println(m.MinMaxAndAverage() + "\n");
+                case '3' -> System.out.println(m.lowestToHighest());
+                case '4' -> System.out.println(m.cheapestHours());
             }
         } while (choice != 'e');
-
-
     }
 }

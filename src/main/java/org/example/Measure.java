@@ -8,14 +8,22 @@ import java.util.Arrays;
 
 public final class Measure {
 
-
     private final TimeStamp[] timeStamps = new TimeStamp[24];
 
-    public Measure() {
-        createTimestamps();
+    public Measure() {}
+
+    public void createTimestamps() {
+        System.out.println("Skriv in ett värde i öre för varje klockslag. Endast siffror i heltal");
+
+        for (int i = 0; i < timeStamps.length; i++) {
+            String from = i < 10 ? "0" + i : Integer.toString(i);
+            String to = i + 1 < 10 ? "0" + (i + 1) : Integer.toString(i + 1);
+            int userInput = Utils.getInt(from, to);
+            timeStamps[i] = new TimeStamp(from + "-" + to, userInput);
+        }
     }
 
-    public Measure(String fileName) {
+    public void createTimeStamps(String fileName) {
         String path = System.getProperty("user.dir") + "/" + fileName;
         String line = "";
         int count = 0;
@@ -32,17 +40,6 @@ public final class Measure {
             System.out.println(e);
         } catch (IOException e) {
             System.out.println(e);
-        }
-    }
-
-    private void createTimestamps() {
-        System.out.println("Skriv in ett värde i öre för varje klockslag. Endast siffror i heltal");
-
-        for (int i = 0; i < timeStamps.length; i++) {
-            String from = i < 10 ? "0" + i : Integer.toString(i);
-            String to = i + 1 < 10 ? "0" + (i + 1) : Integer.toString(i + 1);
-            int userInput = Utils.getInt(from, to);
-            timeStamps[i] = new TimeStamp(from + "-" + to, userInput);
         }
     }
 
